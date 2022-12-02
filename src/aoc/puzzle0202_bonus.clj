@@ -45,6 +45,9 @@
 (defn apply-strategy [k]
   (get decision-map k))
 
+(defn construct-game [opponent players-pick]
+  (str opponent " " players-pick))
+
 (defn map-play
   [games]
   (loop
@@ -54,9 +57,10 @@
           opponent (str (first game))
           decision (str (last game))
           decision-key (apply-strategy decision)
-          players-pick (get-in game-rules [decision-key opponent])]
+          players-pick (get-in game-rules [decision-key opponent])
+          new-game (construct-game opponent players-pick)]
       (if game
-        (recur (conj coll (str opponent " " players-pick)) (rest games))
+        (recur (conj coll new-game) (rest games))
         coll))))
 
 (defn scoring-pattern [pattern]

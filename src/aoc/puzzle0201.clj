@@ -1,12 +1,13 @@
 (ns aoc.puzzle0201)
 
-(def input ["A Y"
-            "B X"
-            "C Z"])
+(def example ["A Y"
+              "B X"
+              "C Z"])
 
-(clojure.string/split-lines (slurp "resources/puzzle0201.txt"))
+(def puzzle-input
+  (clojure.string/split-lines (slurp "resources/puzzle0201.txt")))
 
-(defn play
+(defn solve
   [games]
   (loop
    [score 0
@@ -23,4 +24,4 @@
       "C Y" (recur (+ score 2) (rest games))
       "C Z" (recur (+ score 6) (rest games)))))
 
-(play (clojure.string/split-lines (slurp "resources/puzzle0201.txt")))
+(solve puzzle-input)

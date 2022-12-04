@@ -51,6 +51,9 @@
       "C Y" (recur (+ score 2) (rest games))
       "C Z" (recur (+ score 6) (rest games)))))
 
-(->> puzzle-input
-     map-play
-     play)
+(defn solve [puzzle-input]
+  (->> puzzle-input
+       map-play
+       play))
+
+(solve puzzle-input)

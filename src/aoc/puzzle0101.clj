@@ -1,24 +1,24 @@
 (ns aoc.puzzle0101)
 
-(def data ["1000"
-           "2000"
-           "3000"
-           ""
-           "4000"
-           ""
-           "5000"
-           "6000"
-           ""
-           "7000"
-           "8000"
-           "9000"
-           ""
-           "10000"])
+(def example ["1000"
+              "2000"
+              "3000"
+              ""
+              "4000"
+              ""
+              "5000"
+              "6000"
+              ""
+              "7000"
+              "8000"
+              "9000"
+              ""
+              "10000"])
 
-(def input (->> (slurp "resources/puzzle0101.txt")
-                clojure.string/split-lines))
+(def puzzle-input (->> (slurp "resources/puzzle0101.txt")
+                       clojure.string/split-lines))
 
-(defn extract
+(defn solve
   [input]
   (->> (loop [bucket []
               carry []
@@ -29,7 +29,7 @@
              "" (recur (conj bucket carry) [] (rest data))
              (recur bucket (conj carry h) (rest data)))))))
 
-(->> (extract input)
+(->> (solve puzzle-input)
      (mapv #(mapv (fn [i] (Integer/parseInt i)) %))
      (mapv #(apply + %))
      (apply max))

@@ -10,8 +10,8 @@
               "ttgJtRGJQctTZtZT"
               "CrZsJsPPZsGzwwsLwLmpwMDw"])
 
-(defn setty-comps [comp]
-  (map set comp))
+(def puzzle-input
+  (clojure.string/split-lines (slurp "resources/puzzle0301.txt")))
 
 (defn solve [data] (let [triples (partition 3 data)]
                      (->>
@@ -20,4 +20,4 @@
                            (map #(score-char (first %)))
                            (reduce +)))))
 
-(solve (clojure.string/split-lines (slurp "resources/puzzle0301.txt")))
+(solve puzzle-input)

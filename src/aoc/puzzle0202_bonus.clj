@@ -76,6 +76,9 @@
         (nil? scoring) score
         (> scoring 0) (recur (+ score scoring) (rest games))))))
 
-(->> puzzle-input
-     map-play
-     play)
+(defn solve [puzzle-input]
+  (->> puzzle-input
+       map-play
+       play))
+
+(solve puzzle-input)

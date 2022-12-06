@@ -7,3 +7,4 @@ Advent of Code 2022 in Clojure
 | 02    | 2     |
 | 03    | 2     |
 | 04    | 2     |
+| 05    | 1     |

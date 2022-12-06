@@ -9,7 +9,6 @@
 
 (defn finder
   [s length]
-  (prn s)
   (loop
    [i 0
     j length]
